@@ -1,0 +1,31 @@
+package datastructure;
+
+public class EulerCircuit {
+    int[][] mat;
+    int vertexNum;
+    public EulerCircuit(int[][]mat,int vertexNum) {
+        this.mat=mat;
+        this.vertexNum=vertexNum;
+    }
+    public int getOddVertexNum(){
+    	int count=0;
+    	for (int i = 0;i<vertexNum;i++){
+    		int degree=0;
+    		for (int j=0;j<vertexNum;j++){
+    			degree=degree+mat[i][j];
+    		}
+    		if (degree % 2 != 0)
+    			count++;
+    }
+    return count;
+    }
+    public static void main(String[]args){
+    	int [][] mat={{0,1,2,2},{1,0,1,1},{2,1,0,0},{2,1,0,0}};
+    	EulerCircuit eulerCircuit=new EulerCircuit(mat,4);
+    	int oddVertexNum=eulerCircuit.getOddVertexNum();
+    	if (oddVertexNum>=2)
+    		System.out.print("有"+oddVertexNum+"个顶点通奇数桥"，无欧拉回路)；
+    	else
+    		System.out.print("存在欧拉回路")
+    }
+}
